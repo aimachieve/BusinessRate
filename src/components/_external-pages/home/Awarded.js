@@ -15,7 +15,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 export default function awarded() {
   return (
-    <RootStyle>
+    <RootStyle> 
       <Container maxWidth="lg" sx={{ position: 'relative', }}>
         {/* Claim top rated local business */}
         <Grid container spacing={5} mb={3}>
