@@ -86,6 +86,7 @@ export default function MainFooter() {
         >
           <Grid container item xs={12} md={12} spacing={3}>
             <Grid item xs={6} md={3} justifyContent="space-between">
+              <img src="/images/footer-flag.svg" alt='footer' />
               <Typography
                 variant="overline"
                 color="white"
@@ -94,11 +95,25 @@ export default function MainFooter() {
                   fontWeight: 300,
                   fontSize: 16,
                   fontFamily: 'Poppins',
-                  mt: 9,
+                  mt: 3,
                   textAlign: 'center'
                 }}
               >
                 BusinessRate is built upon 5 pillars of the customer experience and is created to empower both businesses and consumers. Capturing the overall customer experience is unlike anything on the market.
+              </Typography>
+              <Typography
+                variant="overline"
+                color="white"
+                sx={{
+                  display: 'block',
+                  fontWeight: 200,
+                  fontSize: 16,
+                  fontFamily: 'Poppins',
+                  mt: 3,
+                  textAlign: 'center'
+                }}
+              >
+                ©2022 Top Rated Local®
               </Typography>
             </Grid>
             {LINKS.map((list, index) => {

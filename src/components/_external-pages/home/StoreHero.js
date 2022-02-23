@@ -16,7 +16,7 @@ const RootStyle = styled(motion.div)(({ theme }) => ({
     top: 200,
     left: 0,
     width: '100%',
-    // height: '500px',
+    // height: '100%',
     display: 'flex',
     // position: 'fixed',
     alignItems: 'center'
@@ -29,7 +29,7 @@ const ContentStyle = styled((props) => <Stack alignItems={'center'} spacing={5} 
   textAlign: 'center',
   position: 'relative',
   paddingTop: theme.spacing(5),
-  paddingBottom: theme.spacing(30),
+  paddingBottom: '500px',
   [theme.breakpoints.up('md')]: {
     margin: 'unset',
     textAlign: 'center'
