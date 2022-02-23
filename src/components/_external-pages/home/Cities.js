@@ -14,7 +14,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function StoreCard() {
+export default function Cites() {
   return (
     <RootStyle>
       <Container maxWidth="lg" sx={{ position: 'relative', }}>
