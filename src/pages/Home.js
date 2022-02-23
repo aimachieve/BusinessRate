@@ -4,9 +4,13 @@ import { styled } from '@material-ui/core/styles';
 import Page from '../components/Page';
 import {
   StoreHero,
-  StoreCard,
+  Businesses,
+  Claim,
+  Cities,
+  Awarded,
+  Goal
   // LandingConnect
-} from '../components/_external-pages/store';
+} from '../components/_external-pages/home';
 
 // ----------------------------------------------------------------------
 
@@ -22,12 +26,16 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function StorePage() {
+export default function HomePage() {
   return (
     <RootStyle title="Business Rate" id="move_top">
       <StoreHero />
       <ContentStyle>
-        <StoreCard />
+        <Businesses />
+        <Claim />
+        <Cities />
+        <Awarded />
+        <Goal />
       </ContentStyle>
     </RootStyle>
   );

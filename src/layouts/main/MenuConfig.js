@@ -29,8 +29,8 @@ const menuConfig = [
     icon: <Icon icon={homeFill} {...ICON_SIZE} />
   },
   {
-    title: 'Company',
-    path: '/company',
+    title: 'Business detail',
+    path: '/detail',
     icon: <Icon icon={homeFill} {...ICON_SIZE} />
   },
   {

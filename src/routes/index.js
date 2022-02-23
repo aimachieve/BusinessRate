@@ -104,7 +104,8 @@ export default function Router() {
       path: '/',
       element: <MainLayout />,
       children: [
-        { path: '/', element: <LandingPage /> },
+        { path: '/', element: <HomePage /> },
+        { path: '/detail', element: <LandingPage /> },
         { path: '/categories', element: <CategoriesPage /> },
         { path: '/restaurants', element: <RestaurantsPage /> },
         { path: '/locations', element: <LocationsPage /> },
@@ -134,6 +135,7 @@ const VerifyCode = Loadable(lazy(() => import('../pages/authentication/VerifyCod
 const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 // Main
 const LandingPage = Loadable(lazy(() => import('../pages/LandingPage')));
+const HomePage = Loadable(lazy(() => import('../pages/Home')));
 const CategoriesPage = Loadable(lazy(() => import('../pages/CategoriesPage')));
 const RestaurantsPage = Loadable(lazy(() => import('../pages/Restaurants')));
 const LocationsPage = Loadable(lazy(() => import('../pages/Locations')));

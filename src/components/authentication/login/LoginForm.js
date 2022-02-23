@@ -121,9 +121,9 @@ export default function LoginForm() {
             label="Remember me"
           />
 
-          <Typography sx={{ color: 'black' }} variant="subtitle2">
+          {/* <Typography sx={{ color: 'black' }} variant="subtitle2">
             Forgot your password?
-          </Typography>
+          </Typography> */}
         </Stack>
 
         <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ backgroundColor: '#131025' }}>

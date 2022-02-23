@@ -8,6 +8,7 @@ import {
   DialogContent,
   Typography,
   IconButton,
+  Stack
 } from "@material-ui/core";
 import Logo from "components/Logo";
 import useAuth from "hooks/useAuth";
@@ -27,7 +28,7 @@ export default function LoginButton() {
 
   return (
     <>
-      <Button variant="text" onClick={handleClickOpen} sx={{color: '#235789', fontSize: 18}}>
+      <Button variant="text" onClick={handleClickOpen} sx={{ color: '#235789', fontSize: 18 }}>
         Login
       </Button>
       <Dialog
@@ -52,19 +53,19 @@ export default function LoginButton() {
         <DialogContent sx={{ px: 10, pb: 5 }}>
           <Logo sx={{ mx: "auto" }} />
           <Typography
-            variant="h2"
+            variant="h3"
             color="black"
             sx={{
               fontWeight: 400,
               mb: 5,
-              fontFamily: "Abril Fatface, cursive",
+              fontFamily: "PoppinsBold",
               textAlign: "center",
             }}
           >
             Welcome Back
           </Typography>
           <LoginForm />
-          <Typography variant="subtitle1" align="center" sx={{ mt: 3 }}>
+          {/* <Typography variant="subtitle1" align="center" sx={{ mt: 3 }}>
             Don’t have an account?&nbsp;
             <Button
               variant="outlined"
@@ -74,7 +75,20 @@ export default function LoginButton() {
             >
               Sign Up
             </Button>
-          </Typography>
+          </Typography> */}
+          <Stack mt={3} direction="row" justifyContent={'space-around'} alignItems="center">
+            <Typography variant="subtitle1" align="center">
+              Don’t have an account?
+            </Typography>
+            <Button variant="outlined" onClick={() => setAuthModal('register')} sx={{
+              color: "#ffb03d",
+              border: "solid 2px #ffb03d",
+              borderRadius: '50px',
+              width: '150px'
+            }}>
+              Sign Up
+            </Button>
+          </Stack>
           <Typography
             gutterBottom
             variant="body2"

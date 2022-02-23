@@ -57,9 +57,19 @@ const LINKS = [
 
 const RootStyle = styled('div')(({ theme }) => ({
   position: 'relative',
-  background: 'url(/images/footer-bg.png)',
+  background: 'url(/images/TRL-Footer-Illustration.svg)',
   backgroundRepeat: 'no-repeat',
-  backgroundSize: '100% 100%'
+  // backgroundSize: '100% 100%'
+  backgroundSize: 'cover',
+  [theme.breakpoints.up('md')]: {
+    top: 50,
+    left: 0,
+    width: '100%',
+    // height: '100vh',
+    display: 'flex',
+    // position: 'fixed',
+    alignItems: 'center'
+  }
 }));
 
 // ----------------------------------------------------------------------
@@ -68,7 +78,7 @@ export default function MainFooter() {
   return (
     <RootStyle>
       <Divider />
-      <Container maxWidth="lg" sx={{ py: 10 }}>
+      <Container maxWidth="lg" sx={{marginTop: '200px', marginBottom: '50px'}}>
         <Grid
           container
           justifyContent={{ xs: 'center', md: 'space-between' }}
@@ -128,9 +138,9 @@ export default function MainFooter() {
         </Grid>
       </Container>
 
-      <Divider sx={{ border: '2px solid #ffffff' }} />
+      {/* <Divider sx={{ border: '2px solid #ffffff' }} /> */}
 
-      <Typography
+      {/* <Typography
         color="white"
         sx={{
           py: 4,
@@ -142,7 +152,7 @@ export default function MainFooter() {
         }}
       >
         Copyright @ 2022 Top Rated Local®
-      </Typography>
+      </Typography> */}
     </RootStyle>
   );
 }

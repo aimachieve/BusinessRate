@@ -8,6 +8,7 @@ import {
   DialogContent,
   Typography,
   IconButton,
+  Stack
 } from "@material-ui/core";
 import useAuth from "hooks/useAuth";
 import Logo from "components/Logo";
@@ -56,29 +57,40 @@ export default function LoginButton() {
         <DialogContent sx={{ px: 10, pb: 5 }}>
           <Logo sx={{ mx: "auto" }} />
           <Typography
-            variant="h2"
+            variant="h3"
             color="black"
             sx={{
-              fontWeight: 400,
+              fontWeight: 300,
               mb: 5,
-              fontFamily: "Abril Fatface, cursive",
+              fontFamily: "PoppinsBold",
               textAlign: "center",
             }}
           >
             Let's Get Started
           </Typography>
           <RegisterForm />
-          <Typography variant="subtitle1" align="center" sx={{ mt: 3 }}>
-            Don’t have an account?&nbsp;
-            <Button
+          <Stack mt={3} direction="row" justifyContent={'space-around'} alignItems="center">
+            <Typography variant="subtitle1" align="center">
+              Have an account?
+            </Typography>
+            {/* <Button
               variant="outlined"
               size="large"
               sx={{ ml: 2, borderColor: "#131025", color: "#131025" }}
               onClick={() => setAuthModal("login")}
             >
               Login
+            </Button> */}
+
+            <Button variant="outlined" onClick={() => setAuthModal("login")} sx={{
+              color: "#ffb03d",
+              border: "solid 2px #ffb03d",
+              borderRadius: '50px',
+              width: '150px'
+            }}>
+              Login
             </Button>
-          </Typography>
+          </Stack>
           <Typography
             gutterBottom
             variant="body2"
@@ -86,7 +98,7 @@ export default function LoginButton() {
             color="grey.500"
             sx={{ px: 5, mt: 3 }}
           >
-            This site is protected by reCAPTCHA and the Google{" "}
+            {/* This site is protected by reCAPTCHA and the Google{" "} */}
             <Typography variant="span" color="black">
               Privacy Policy
             </Typography>{" "}
