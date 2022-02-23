@@ -17,7 +17,6 @@ import {
   IconButton,
   InputAdornment,
   FormControlLabel,
-  Typography
 } from '@material-ui/core';
 import { LoadingButton } from '@material-ui/lab';
 // routes
