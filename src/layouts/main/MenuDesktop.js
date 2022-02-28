@@ -11,6 +11,7 @@ import LoginButton from "./LoginButton";
 import RegisterButton from "./RegisterButton";
 import EmailVerifyModal from "./EmailVerifyModal";
 import CongratulationModal from "./CongratulationModal";
+import Cart from "../../pages/cart/cart"
 // material
 import { styled } from "@material-ui/core/styles";
 import {
@@ -267,11 +268,12 @@ export default function MenuDesktop({ isOffset, isHome, navConfig }) {
           </Button>
         </Stack>
       ) : (
-        <Stack direction="row" spacing={6}>
+        <Stack direction="row" spacing={1}>
           <LoginButton />
           <RegisterButton />
         </Stack>
       )}
+      <Cart />
       <EmailVerifyModal />
       <CongratulationModal />
     </Stack>

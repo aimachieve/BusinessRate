@@ -1,7 +1,8 @@
 // material
 import React from "react"
 import { styled } from '@material-ui/core/styles';
-import { Grid, Container, Typography, Stack, Button } from '@material-ui/core';
+import { Grid, Container, Typography, Stack, Button, Link } from '@material-ui/core';
+import useCart from '../../../hooks/useCart';
 //
 // import { MotionInView, varFadeInUp, varFadeInDown, varFadeInLeft, varFadeInRight } from '../../animate';
 
@@ -14,6 +15,28 @@ const RootStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function StoreCard() {
+  const { updateCart } = useCart();
+
+  const handleAddToCart = (data) => {
+    if (localStorage.getItem('products')) {
+      const products = JSON.parse(localStorage.getItem('products'))
+      const result = products.filter(p => p.id === data.id)
+      result[0].count ++
+      localStorage.setItem('products', JSON.stringify(products))
+
+      updateCart(products)
+    } else {
+      const products = []
+      products.push({
+        ...data,
+        count: 1
+      })
+      localStorage.setItem('products', JSON.stringify(products))
+      
+      updateCart(products)
+    }
+  }
+
   return (
     <RootStyle>
       <Container maxWidth="lg" sx={{ position: 'relative' }}>
@@ -63,7 +86,7 @@ export default function StoreCard() {
         {/* Shop collection */}
         <Grid container spacing={5} mb={3}>
           <Grid item xs={12} md={6}>
-            <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/files/looking-out-window-wearing-headphones_medium.jpg?v=1589981749" alt="headphone-banner" style={{width: '100%', height: '100%'}} />
+            <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/files/looking-out-window-wearing-headphones_medium.jpg?v=1589981749" alt="headphone-banner" style={{ width: '100%', height: '100%' }} />
           </Grid>
           <Grid item xs={12} md={6}>
             <Stack spacing={2} alignItems="flex-start" mt={10}>
@@ -82,49 +105,69 @@ export default function StoreCard() {
         <Grid container spacing={2} mb={10}>
           <Grid item xs={12} md={3}>
             <Stack spacing={2} alignItems="flex-start">
-              <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/products/bao_bh9_matte_black_01_medium.jpg?v=1567095523" alt="head1" />
-              <Typography sx={{ color: '#030303', fontSize: '12px', fontStyle: 'Poppins', textAlign: 'left' }}>
-                Beoplay H9 Headphones
-              </Typography>
-              <Typography sx={{ color: '#030303', fontSize: '16px', fontStyle: 'Poppins' }}>
-                50000
-              </Typography>
+              <Link href="/products/headphone" >
+                <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/products/bao_bh9_matte_black_01_medium.jpg?v=1567095523" alt="head1" />
+                <Typography sx={{ color: '#030303', fontSize: '12px', fontStyle: 'Poppins', textAlign: 'left' }}>
+                  Beoplay H9 Headphones
+                </Typography>
+                <Typography sx={{ color: '#030303', fontSize: '16px', fontStyle: 'Poppins' }}>
+                  50000
+                </Typography>
+              </Link>
+              <Button
+                variant="contained"
+                onClick={
+                  () => {
+                    handleAddToCart({
+                      id: 1,
+                      img: "https://cdn.shopify.com/s/files/1/0263/8364/6794/products/bao_bh9_matte_black_01_medium.jpg?v=1567095523",
+                      name: "Beoplay H9 Headphones",
+                      price: 50000
+                    })
+                  }}>
+                Add to Cart
+              </Button>
+            </Stack>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <Stack spacing={2} alignItems="flex-start">
+              <Link href="" >
+                <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/products/a_ed_charcoal_01_medium.jpg?v=1567098504" alt="head1" />
+                <Typography sx={{ color: '#030303', fontSize: '12px', fontStyle: 'Poppins', textAlign: 'left' }}>
+                  Amazon Echo Dot Gen 3
+                </Typography>
+                <Typography sx={{ color: '#030303', fontSize: '16px', fontStyle: 'Poppins' }}>
+                  2999 4999
+                </Typography>
+              </Link>
               <Button variant="contained">Add to Cart</Button>
             </Stack>
           </Grid>
           <Grid item xs={12} md={3}>
             <Stack spacing={2} alignItems="flex-start">
-              <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/products/a_ed_charcoal_01_medium.jpg?v=1567098504" alt="head1" />
-              <Typography sx={{ color: '#030303', fontSize: '12px', fontStyle: 'Poppins', textAlign: 'left' }}>
-                Amazon Echo Dot Gen 3
-              </Typography>
-              <Typography sx={{ color: '#030303', fontSize: '16px', fontStyle: 'Poppins' }}>
-                2999 4999
-              </Typography>
-              <Button variant="contained">Add to Cart</Button>
-            </Stack>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <Stack spacing={2} alignItems="flex-start">
-              <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/products/t-1_medium.jpg?v=1589980314" alt="head1" />
-              <Typography sx={{ color: '#030303', fontSize: '12px', fontStyle: 'Poppins', textAlign: 'left' }}>
-                Pebbo For AirPods
-              </Typography>
-              <Typography sx={{ color: '#030303', fontSize: '16px', fontStyle: 'Poppins' }}>
-                2999
-              </Typography>
+              <Link href="" >
+                <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/products/t-1_medium.jpg?v=1589980314" alt="head1" />
+                <Typography sx={{ color: '#030303', fontSize: '12px', fontStyle: 'Poppins', textAlign: 'left' }}>
+                  Pebbo For AirPods
+                </Typography>
+                <Typography sx={{ color: '#030303', fontSize: '16px', fontStyle: 'Poppins' }}>
+                  2999
+                </Typography>
+              </Link>
               <Button variant="contained" sx={{ disable: true }}>Sold Out</Button>
             </Stack>
           </Grid>
           <Grid item xs={12} md={3}>
             <Stack spacing={2} alignItems="flex-start">
-              <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/products/gpb_white_01_medium.jpg?v=1567092418" alt="head1" />
-              <Typography sx={{ color: '#030303', fontSize: '12px', fontStyle: 'Poppins', textAlign: 'left' }}>
-                Google Pixel Buds
-              </Typography>
-              <Typography sx={{ color: '#030303', fontSize: '16px', fontStyle: 'Poppins' }}>
-                15900
-              </Typography>
+              <Link href="" >
+                <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/products/gpb_white_01_medium.jpg?v=1567092418" alt="head1" />
+                <Typography sx={{ color: '#030303', fontSize: '12px', fontStyle: 'Poppins', textAlign: 'left' }}>
+                  Google Pixel Buds
+                </Typography>
+                <Typography sx={{ color: '#030303', fontSize: '16px', fontStyle: 'Poppins' }}>
+                  15900
+                </Typography>
+              </Link>
               <Button variant="contained">Add to Cart</Button>
             </Stack>
           </Grid>
@@ -144,7 +187,7 @@ export default function StoreCard() {
             </Stack>
           </Grid>
           <Grid item xs={12} md={6}>
-            <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/files/holding-iphone-6_medium.jpg?v=1589981876" alt="headphone-banner" style={{width: '100%', height: '100%'}} />
+            <img src="https://cdn.shopify.com/s/files/1/0263/8364/6794/files/holding-iphone-6_medium.jpg?v=1589981876" alt="headphone-banner" style={{ width: '100%', height: '100%' }} />
           </Grid>
         </Grid>
 

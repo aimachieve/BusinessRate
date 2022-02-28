@@ -8,6 +8,7 @@ import ThemeConfig from './theme';
 import ScrollToTop from './components/ScrollToTop';
 import NotistackProvider from './components/NotistackProvider';
 import ThemePrimaryColor from './components/ThemePrimaryColor';
+import {CartProvider} from './contexts/CartContext';
 
 // ----------------------------------------------------------------------
 
@@ -16,11 +17,13 @@ export default function App() {
     <ThemeConfig>
       <ThemePrimaryColor>
         <NotistackProvider>
-          {/* <Settings /> */}
-          <ScrollToTop />
-          <Router />
+          <CartProvider>
+            {/* <Settings /> */}
+            <ScrollToTop />
+            <Router />
+          </CartProvider>
         </NotistackProvider>
       </ThemePrimaryColor>
-    </ThemeConfig>
+    </ThemeConfig >
   );
 }

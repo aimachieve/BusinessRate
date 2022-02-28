@@ -110,6 +110,9 @@ export default function Router() {
         { path: '/restaurants', element: <RestaurantsPage /> },
         { path: '/locations', element: <LocationsPage /> },
         { path: '/store', element: <StorePage /> },
+        { path: '/products/headphone', element: <ProductPage /> },
+        { path: '/cart', element: <CartPage /> },
+        { path: '/checkout', element: <CheckoutPage /> },
         { path: 'reset-password', element: <ResetPassword /> },
         { path: 'verify', element: <VerifyCode /> }
       ]
@@ -140,3 +143,6 @@ const CategoriesPage = Loadable(lazy(() => import('../pages/CategoriesPage')));
 const RestaurantsPage = Loadable(lazy(() => import('../pages/Restaurants')));
 const LocationsPage = Loadable(lazy(() => import('../pages/Locations')));
 const StorePage = Loadable(lazy(() => import('../pages/Store')));
+const ProductPage = Loadable(lazy(() => import('../pages/Product')));
+const CartPage = Loadable(lazy(() => import('../pages/cart/cartPage')));
+const CheckoutPage = Loadable(lazy(() => import('../pages/cart/checkout')));
