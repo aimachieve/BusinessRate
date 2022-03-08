@@ -24,10 +24,10 @@ const LINKS = [
   {
     headline: 'Company',
     children: [
-      { name: 'About', href: '#' },
+      { name: 'About', href: '/aboutus' },
       { name: 'Legal', href: '#' },
       { name: 'Blog', href: '#' },
-      { name: 'Contact', href: '#' },
+      { name: 'Contact', href: '/contactus' },
       { name: 'Report Spam', href: '#' },
       { name: 'Branding Guidelines', href: '#' },
       { name: 'Supported Sources', href: '#' }

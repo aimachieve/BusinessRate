@@ -113,6 +113,7 @@ export default function Router() {
         { path: '/products/headphone', element: <ProductPage /> },
         { path: '/cart', element: <CartPage /> },
         { path: '/checkout', element: <CheckoutPage /> },
+        { path: '/contactus', element: <ContactUsPage /> },
         { path: 'reset-password', element: <ResetPassword /> },
         { path: 'verify', element: <VerifyCode /> }
       ]
@@ -146,3 +147,4 @@ const StorePage = Loadable(lazy(() => import('../pages/Store')));
 const ProductPage = Loadable(lazy(() => import('../pages/Product')));
 const CartPage = Loadable(lazy(() => import('../pages/cart/cartPage')));
 const CheckoutPage = Loadable(lazy(() => import('../pages/cart/checkout')));
+const ContactUsPage = Loadable(lazy(() => import('../pages/ContactUs')));
