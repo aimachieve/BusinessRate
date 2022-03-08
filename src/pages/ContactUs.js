@@ -1,8 +1,7 @@
 // material
-import React, { useState } from "react"
+import React from "react"
 import { styled } from '@material-ui/core/styles';
 import { Grid, Container, Typography, Stack, Button, TextField, MenuItem, Select, FormControl, InputLabel, Link } from '@material-ui/core';
-import useCart from "hooks/useCart";
 
 // import ReactImageZoom from 'react-image-zoom';
 // import { MotionInView, varFadeInUp, varFadeInDown, varFadeInLeft, varFadeInRight } from '../../animate';
