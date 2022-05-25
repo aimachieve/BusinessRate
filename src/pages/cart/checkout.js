@@ -18,6 +18,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 export default function Checkout() {
   const { totalPrice, products } = useCart()
+  console.log(process.env.REACT_APP_STRIPE_PUBKEY)
   return (
     <RootStyle>
       <Container maxWidth="lg">

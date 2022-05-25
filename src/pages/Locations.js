@@ -41,7 +41,7 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
 
 // ----------------------------------------------------------------------
 
-export default function Restaurants() {
+export default function Locations() {
   // const [age, setAge] = useState('');
   // const [value, setValue] = useState(new Date());
   // const handleChange = (event) => {

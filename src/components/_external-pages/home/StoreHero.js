@@ -1,10 +1,17 @@
+import * as React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+
 // material
 import { styled } from '@material-ui/core/styles';
 import { Container, Typography, Stack, Button, TextField } from '@material-ui/core';
 // routes
-//
 import { varWrapEnter, varFadeInRight } from '../../animate';
+// for search input
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
@@ -39,6 +46,26 @@ const ContentStyle = styled((props) => <Stack alignItems={'center'} spacing={5} 
 // ----------------------------------------------------------------------
 
 export default function StoreHero() {
+  const [city, setCity] = React.useState('');
+  const [name, setName] = React.useState('');
+  const navigate = useNavigate();
+
+
+  const handleChangeCity = (event) => {
+    setCity(event.target.value);
+  };
+  const handleChangeName = (event) => {
+    setName(event.target.value);
+  };
+
+  const findBusiness = () => {
+    console.log("findBusiness button=>", city, name)
+    if(city != '' && name != '') {
+      console.log(`/${city}/${name}`);
+      navigate(`/search/${city}&${name}`)
+    }
+  }
+
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
@@ -52,13 +79,46 @@ export default function StoreHero() {
               <Typography sx={{ color: '#235789', fontSize: 80, fontWeight: 700, lineHeight: '90px', textAlign: 'center', fontStyle: 'Poppins', mt: 1 }}>
                 Top Rated Local® Businesses In Your Area
               </Typography>
-              <Typography sx={{ color: '#235789', fontSize: 20, fontWeight: 600, textAlign: 'center', fontStyle: 'Poppins', mt: 1, mb:2 }}>
+              <Typography sx={{ color: '#235789', fontSize: 20, fontWeight: 600, textAlign: 'center', fontStyle: 'Poppins', mt: 1, mb: 2 }}>
                 Everyday, we analyze ratings & reviews from hundreds of verified review sites online and then rank businesses based on their overall Rating Score™. This allows you to quickly and confidently find the truly Top Rated Local® businesses in your area.
               </Typography>
               <Stack direction="row" spacing={3} justifyContent="center" alignItems="center">
-                <TextField label="select city..." sx={{color: 'white', borderRadius: '50px'}} type="search" />
-                <TextField label="Business Name, Plumber, HVAC..." sx={{color: 'white', borderRadius: '50px'}} type="search" />
-                <Button variant="contained" sx={{
+                <FormControl sx={{ width: '50%' }}>
+                  <InputLabel id="demo-simple-select-label">select city...</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={city}
+                    label="City"
+                    onChange={handleChangeCity}
+                    sx={{ borderRadius: '50px'}}
+                    type="search"
+                  >
+                    <MenuItem value={'newyork-ny'}>New York, NY - USA</MenuItem>
+                    <MenuItem value={'losangeles-ca'}>Los Angeles, CA - USA</MenuItem>
+                    {/* <MenuItem value={30}>Thirty</MenuItem> */}
+                  </Select>
+                </FormControl>
+
+                <FormControl sx={{ width: '50%' }}>
+                  <InputLabel id="demo-simple-select-label">Business Name, Plumber, HVAC...</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={name}
+                    label="Name"
+                    onChange={handleChangeName}
+                    sx={{ borderRadius: '50px'}}
+                  >
+                    <MenuItem value={'accounting-firms'}>Accounting Firms & CPA</MenuItem>
+                    <MenuItem value={'acupunturist'}>Acupunturist</MenuItem>
+                    {/* <MenuItem value={30}>Thirty</MenuItem> */}
+                  </Select>
+                </FormControl>
+                <Button 
+                variant="contained" 
+                onClick={findBusiness}
+                sx={{
                   border: "solid 2px #ffb03d",
                   borderRadius: '50px',
                   backgroundColor: "#ffb03d",

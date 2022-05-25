@@ -115,7 +115,8 @@ export default function Router() {
         { path: '/checkout', element: <CheckoutPage /> },
         { path: '/contactus', element: <ContactUsPage /> },
         { path: 'reset-password', element: <ResetPassword /> },
-        { path: 'verify', element: <VerifyCode /> }
+        { path: 'verify', element: <VerifyCode /> },
+        { path: '/search/:id', element: <SearchPage /> }
       ]
     },
     { path: '*', element: <Navigate to="/404" replace /> }
@@ -143,6 +144,7 @@ const HomePage = Loadable(lazy(() => import('../pages/Home')));
 const CategoriesPage = Loadable(lazy(() => import('../pages/CategoriesPage')));
 const RestaurantsPage = Loadable(lazy(() => import('../pages/Restaurants')));
 const LocationsPage = Loadable(lazy(() => import('../pages/Locations')));
+const SearchPage = Loadable(lazy(() => import('../pages/Search')));
 const StorePage = Loadable(lazy(() => import('../pages/Store')));
 const ProductPage = Loadable(lazy(() => import('../pages/Product')));
 const CartPage = Loadable(lazy(() => import('../pages/cart/cartPage')));
