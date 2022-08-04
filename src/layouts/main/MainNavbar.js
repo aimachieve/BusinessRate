@@ -75,7 +75,7 @@ export default function MainNavbar() {
 
   const findBusiness = () => {
     console.log("findBusiness button=>", city, name)
-    if (city != '' && name != '') {
+    if (city !== '' && name !== '') {
       console.log(`/${city}/${name}`);
       navigate(`/search/${city}&${name}`)
     }

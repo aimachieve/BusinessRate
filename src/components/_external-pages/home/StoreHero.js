@@ -50,7 +50,6 @@ export default function StoreHero() {
   const [name, setName] = React.useState('');
   const navigate = useNavigate();
 
-
   const handleChangeCity = (event) => {
     setCity(event.target.value);
   };
@@ -82,7 +81,7 @@ export default function StoreHero() {
               <Typography sx={{ color: '#235789', fontSize: 20, fontWeight: 600, textAlign: 'center', fontStyle: 'Poppins', mt: 1, mb: 2 }}>
                 Everyday, we analyze ratings & reviews from hundreds of verified review sites online and then rank businesses based on their overall Rating Score™. This allows you to quickly and confidently find the truly Top Rated Local® businesses in your area.
               </Typography>
-              <Stack direction="row" spacing={3} justifyContent="center" alignItems="center">
+              <Stack direction="row" spacing={3} justifyContent="center" alignItems="center" mb={20}>
                 <FormControl sx={{ width: '50%' }}>
                   <InputLabel id="demo-simple-select-label">select city...</InputLabel>
                   <Select
